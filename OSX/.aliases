@@ -1,0 +1,20 @@
+ echo ".aliases sourced"
+
+alias hg="history | grep"
+
+alias mt="ssh serveradmin%rothmichaels.us@s38275.gridserver.com"
+alias mthost="serveradmin%rothmichaels.us@s38275.gridserver.com"
+
+alias c="clear"
+alias ll="ls -l | less"
+alias la="ls -a"
+alias lla="ls -la | less"
+alias l="less"
+
+export kstatus="default"
+
+alias ekeys="~/scripts/emacskeys.sh"
+alias dkeys="~/scripts/defaultkeys.sh"
+alias keys="echo $kstatus"
+
+alias gitadd="git add --interactive"
