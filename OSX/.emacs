@@ -9,11 +9,13 @@
 (package-initialize)
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(initial-buffer-choice t))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(initial-buffer-choice t)
+ '(tool-bar-mode nil))
 
 (server-start)
 
@@ -31,7 +33,7 @@
 
 
 ;; mode-hooks
-(defun mh-paredit-mode-on () 
+(defun mh-paredit-mode-on ()
   (paredit-mode 1))
 
 (defun mh-linum-mode-on ()
@@ -39,8 +41,24 @@
 
 
 ;; Emacs-Lisp
-(add-hook 'clojure-mode-hook 'mh-paredit-mode-on)
-(add-hook 'clojure-mode-hook 'mh-linum-mode-on)
+(add-hook 'emacs-lisp-mode-hook 'mh-paredit-mode-on)
+(add-hook 'emacs-lisp-mode-hook 'mh-linum-mode-on)
+
+
+;; LISP
+(add-hook 'lisp-mode-hook 'mh-paredit-mode-on)
+(add-hook 'lisp-mode-hook 'mh-linum-mode-on)
+
+;; PHP
+(require 'php-mode)
+(add-hook 'php-mode-hook 'mh-linum-mode-on)
+
+;; Drupal
+(require 'drupal-mode)
+(add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . drupal-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(php\\|inc\\)$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
+(add-hook 'drupal-mode-hook 'mh-linum-mode-on)
 
 
 ;; clojure
@@ -57,4 +75,9 @@
 ;(setq-default TeX-master nil)
 
 (require 'tex-site)
-
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
