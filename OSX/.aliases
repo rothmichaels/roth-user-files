@@ -1,5 +1,3 @@
- echo ".aliases sourced"
-
 alias hg="history | grep"
 
 alias mt="ssh serveradmin%rothmichaels.us@s38275.gridserver.com"

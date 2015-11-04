@@ -1,21 +1,18 @@
-# stop if non-interactive
-[ -z "$PS1" ] && return
-if [ 
-echo ".profile sourced"
-
-
-# if running bash                                                                                                                                                                       
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists                                                                                                                                                      
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi
 fi
-##
-# Your previous /Users/roth/.profile file was backed up as /Users/roth/.profile.macports-saved_2011-10-14_at_17:04:46
-##
 
-# MacPorts Installer addition on 2011-10-14_at_17:04:46: adding an appropriate PATH variable for use with MacPorts.
-#export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# MacPorts Installer addition on 2015-10-28_at_12:37:11: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+export PATH="/opt/local/lib/postgresql94/bin:~/bin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export LANG=en_US.UTF-8
