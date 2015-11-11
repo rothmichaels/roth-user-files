@@ -1,0 +1,15 @@
+SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m -Xmx512M -Xss2M"
+
+# this allows sbt to be executed in Emacs terminal
+if [[ -n $EMACS ]]; then
+   echo "Emacs detected, commencing hijacking sequence..."
+
+   # to avoid division by zero, with jline 1.0, see https://github.com/sbt/sbt/issues/714
+   stty columns 80
+
+   # avoid fancy colors that comint-mode won't support anyway
+   #SBT_OPTS="$SBT_OPTS -Dsbt.log.noformat=true -Djline.terminal=jline.UnsupportedTerminal"
+   SBT_OPTS="$SBT_OPTS -Djline.terminal=jline.UnsupportedTerminal"
+
+   exec rlwrap java -Xmx512M ${SBT_OPTS} -jar /opt/local/share/sbt/sbt-launch.jar "$@"
+fi
