@@ -1,4 +1,4 @@
-SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256m -Xmx512M -Xss2M"
+SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xmx4096M -Xss2M"
 
 # this allows sbt to be executed in Emacs terminal
 if [[ -n $EMACS ]]; then
@@ -11,5 +11,5 @@ if [[ -n $EMACS ]]; then
    #SBT_OPTS="$SBT_OPTS -Dsbt.log.noformat=true -Djline.terminal=jline.UnsupportedTerminal"
    SBT_OPTS="$SBT_OPTS -Djline.terminal=jline.UnsupportedTerminal"
 
-   exec rlwrap java -Xmx512M ${SBT_OPTS} -jar /opt/local/share/sbt/sbt-launch.jar "$@"
+   exec rlwrap java ${SBT_OPTS} -jar /opt/local/share/sbt/sbt-launch.jar "$@"
 fi

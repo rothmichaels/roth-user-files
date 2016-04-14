@@ -4,9 +4,9 @@
 # history setup
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -n"
-export HISTSIZE=2000
-export HISTFILESIZE=2000
-export HISTIGNORE="&:[ ]*:history*:hg*:exit"
+export HISTSIZE=""
+export HISTFILESIZE=""
+export HISTIGNORE="&:[ ]*:history*:exit"
 
 export SVNEDITOR=emacsclient
 export EDITOR=emacsclient

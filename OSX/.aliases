@@ -16,3 +16,6 @@ alias dkeys="~/scripts/defaultkeys.sh"
 alias keys="echo $kstatus"
 
 alias gitadd="git add --interactive"
+
+
+
